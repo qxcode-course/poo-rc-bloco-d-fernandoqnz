@@ -1,0 +1,29 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-26_17-40-35",
+            "content": "@@ -41,107 +41,15 @@\n tr, \n-number:str) :%0A        self.__id = id%0A        self.__number = number%0A%0A    def isValid (self):%0A        %0A\n+) -%3E None:\n %0A\n",
+            "lines": "2"
+        },
+        {
+            "label": "2025-11-26_17-51-20",
+            "content": "@@ -106,17 +106,16 @@\n number%0A%0A\n-%0A\n     def \n@@ -131,372 +131,10 @@\n self\n-, number:str):%0A        permitidos = %220123456789().%22%0A        for c in number:%0A            if c not in permitidos:%0A                return False%0A        return True%0A    %0A    def getNumber(self):%0A        return self.__number %0A    %0A    def getId(self):%0A        return self.__id%0A    %0A    def __str__(self):%0A        return f%22- %7Bself.__id%7D%22.join(%22%5B%5D%22)%0A        %0A%0A%0A        %0A\n+):\n %0A   \n",
+            "lines": "8"
+        },
+        {
+            "label": "2025-11-26_18-13-44",
+            "content": "@@ -401,16 +401,20 @@\n lf.__id%0A\n+    \n %0A    def\n@@ -446,16 +446,18 @@\n eturn f%22\n+- \n %7Bself.__\n@@ -463,74 +463,20 @@\n _id%7D\n-:%7Bself.__number%7D%22%0A%0Aclass Contact:%0A    def __init__(self):%0A        \n+%22.join(%22%5B%5D%22)\n %0A   \n",
+            "lines": "28"
+        },
+        {
+            "label": "2025-11-26_18-29-21",
+            "content": "@@ -512,17 +512,8 @@\n self\n-, name=%22%22\n ):%0A \n@@ -523,356 +523,8 @@\n     \n-if name is None: name = %22%22%0A        self.__name = name%0A        self.__fones = %5B%5D%0A        self.__favorited = False%0A    %0A    def addPhone(self, label, number):%0A        fone = Phone(label, number)%0A        if not fone.isValid(number):%0A          print(%22fail: fone invalido%22)%0A            return False%0A        self.__fones.append(fone)%0A        return True%0A\n %0A   \n",
+            "lines": "32"
+        },
+        {
+            "label": "2025-11-26_18-36-15",
+            "content": "class Phone:\n    def __init__(self, id:str, number:str) :\n        self.__id = id\n        self.__number = number\n\n\n    def isValid (self, number:str):\n        permitidos = \"0123456789().\"\n        for c in number:\n            if c not in permitidos:\n                return False\n        return True\n    \n    def getNumber(self):\n        return self.__number \n    \n    def getId(self):\n        return self.__id\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__number}\"\n\nclass Contact:\n    def __init__(self, name=\"\"):\n        if name is None: name = \"\"\n        self.__name = name\n        self.__fones = []\n        self.__favorited = False\n    \n    def addPhone(self, label, number):\n        fone = Phone(label, number)\n        if not fone.isValid(number):\n          print(\"fail: fone invalido\")\n            return False\n        self.__fones.append(fone)\n        return True\n\n        \n\n\n        \n\n        \n\n",
+            "lines": "44"
+        }
+    ]
+}
