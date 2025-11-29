@@ -22,8 +22,133 @@
         },
         {
             "label": "2025-11-26_18-36-15",
-            "content": "class Phone:\n    def __init__(self, id:str, number:str) :\n        self.__id = id\n        self.__number = number\n\n\n    def isValid (self, number:str):\n        permitidos = \"0123456789().\"\n        for c in number:\n            if c not in permitidos:\n                return False\n        return True\n    \n    def getNumber(self):\n        return self.__number \n    \n    def getId(self):\n        return self.__id\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__number}\"\n\nclass Contact:\n    def __init__(self, name=\"\"):\n        if name is None: name = \"\"\n        self.__name = name\n        self.__fones = []\n        self.__favorited = False\n    \n    def addPhone(self, label, number):\n        fone = Phone(label, number)\n        if not fone.isValid(number):\n          print(\"fail: fone invalido\")\n            return False\n        self.__fones.append(fone)\n        return True\n\n        \n\n\n        \n\n        \n\n",
+            "content": "@@ -513,18 +513,53 @@\n elf,\n+ \n name\n-:str):\n+=%22%22):%0A        if name is None: name = %22%22\n %0A   \n@@ -574,16 +574,17 @@\n f.__name\n+ \n = name%0A \n@@ -601,27 +601,13 @@\n f.__\n-ph\n+f\n ones\n-: list%5BPhone%5D\n  = %5B\n@@ -636,15 +636,21 @@\n ited\n-=\n+ = \n False%0A\n+    \n %0A   \n@@ -658,39 +658,229 @@\n def \n-getName(self):%0A        re%0A%0A    \n+addPhone(self, label, number):%0A        fone = Phone(label, number)%0A        if not fone.isValid(number):%0A          print(%22fail: fone invalido%22)%0A            return False%0A        self.__fones.append(fone)%0A        return True\n %0A%0A  \n",
             "lines": "44"
+        },
+        {
+            "label": "2025-11-29_11-49-30",
+            "content": "@@ -655,277 +655,8 @@\n   re\n-turn self.__name%0A    %0A    def getIsfavorited(self):%0A        return self.__favorited%0A    %0A    def getPhones(self):%0A        return self.__phones%0A    %0A    def favorite(self):%0A        self.__favorited=True%0A%0A    def unfavorited(self):%0A        self.__favorited=False%0A%0A    def\n %0A%0A  \n",
+            "lines": "40"
+        },
+        {
+            "label": "2025-11-29_11-53-15",
+            "content": "@@ -924,237 +924,8 @@\n  def\n-  addPhone(self, phone:Phone):%0A        if phone.isValid(phone.getNumber()):%0A            self.__phones.append(phone)%0A            return True%0A        print(%22fail: numero inv%C3%A1lido%22)%0A        return False%0A    %0A    def rmPhone%0A        \n %0A%0A  \n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-29_12-04-19",
+            "content": "@@ -1144,789 +1144,40 @@\n hone\n-(self, index:int):%0A        if 0 %3C= index %3Clen(self.__phones):%0A            del self.__phones%5Bindex%5D%0A            return True%0A        print(%22fail: telefone inexistente%22)%0A        return False %0A%0A    def __str__(self):%0A        fav = %22@%22 if self.__favorited else %22-%22%0A        phones_str = %22 %22.join(f%22%5B%7Bi%7D:%7Bp%7D%5D%22 for i, p in enumerate(self.__phones))%0A        return f%22%7Bfav%7D %7Bself.__name%7D %7Bphones_str%7D%22%0A    %0Adef main():%0A    contact =Contact(%22%22)%0A    while True:%0A        line=input()%0A        args=line.split(%22 %22)%0A        print(f%22$%7B' '.join(args)%7D%22)%0A        cmd = args%5B0%5D%0A%0A        if cmd == %22show%22: %0A            print(contact)%0A%0A        elif cmd==%22end%22:%0A            break%0A%0A        elif cmd ==%22init%22:%0A            contact = Contact(args%5B1%5D)%0A%0A        elif cmd == %22add%22:%0A            %0A%0A%0A%0A%0A%0A%0A        %0A%0A\n+%0A        %0A%0A    %0A%0A        %0A%0A%0A    \n     \n",
+            "lines": "62"
+        },
+        {
+            "label": "2025-11-29_12-25-24",
+            "content": "@@ -1908,250 +1908,8 @@\n     \n-id= args%5B1%5D%0A            number= args %5B2%5D%0A            contact.addPhone(Phone(id, number))%0A%0A        elif cmd == %22rm%22:%0A            index = int(args%5B1%5D)%0A            contact.rmPhone(index)%0A%0A        elif cmd == %22tfav%22:%0A            contact.favorite%0A\n %0A%0A%0A%0A\n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-11-29_12-29-07",
+            "content": "@@ -1040,24 +1040,99 @@\n ne)%0A        \n+    return True%0A        print(%22fail: numero inv%C3%A1lido%22)%0A        return False\n %0A    %0A    de\n",
+            "lines": "103"
+        },
+        {
+            "label": "2025-11-29_12-30-35",
+            "content": "@@ -907,24 +907,148 @@\n orited=False\n+%0A%0A    def  addPhone(self, phone:Phone):%0A        if phone.isValid(phone.getNumber()):%0A            self.__phones.append(phone)\n %0A        %0A  \n",
+            "lines": "101"
+        },
+        {
+            "label": "2025-11-29_12-30-45",
+            "content": "@@ -1048,24 +1048,101 @@\n             \n+return True%0A        print(%22fail: telefone inexistente%22)%0A        return False \n %0A%0A    def __\n",
+            "lines": "97"
+        },
+        {
+            "label": "2025-11-29_12-31-15",
+            "content": "@@ -1056,85 +1056,8 @@\n     \n-return True%0A        print(%22fail: telefone inexistente%22)%0A        return False \n %0A%0A  \n",
+            "lines": "95"
+        },
+        {
+            "label": "2025-11-29_12-31-23",
+            "content": "@@ -916,216 +916,8 @@\n lse%0A\n-%0A    def  addPhone(self, phone:Phone):%0A        if phone.isValid(phone.getNumber()):%0A            self.__phones.append(phone)%0A            return True%0A        print(%22fail: numero inv%C3%A1lido%22)%0A        return False%0A\n     \n@@ -917,24 +917,28 @@\n se%0A        %0A\n+    \n %0A    def rmP\n",
+            "lines": "97"
+        },
+        {
+            "label": "2025-11-29_12-31-48",
+            "content": "@@ -2156,59 +2156,8 @@\n te%0A%0A\n-        else: %0A            print(%22comando invdo%22)%0A%0A\n %0A%0A%0A%0A\n",
+            "lines": "104"
+        },
+        {
+            "label": "2025-11-29_12-32-48",
+            "content": "@@ -2203,22 +2203,16 @@\n nvdo%22)%0A%0A\n-main()\n %0A%0A%0A%0A%0A%0A  \n",
+            "lines": "107"
+        },
+        {
+            "label": "2025-11-29_12-36-14",
+            "content": "@@ -1535,19 +1535,16 @@\n nes_str%7D\n- %5B%5D\n %22%0A    %0Ad\n",
+            "lines": "107"
+        },
+        {
+            "label": "2025-11-29_12-38-30",
+            "content": "@@ -1535,16 +1535,17 @@\n nes_str%7D\n+ \n %5B%5D%22%0A    \n",
+            "lines": "107"
+        },
+        {
+            "label": "2025-11-29_12-38-37",
+            "content": "@@ -1523,17 +1523,16 @@\n __name%7D \n-%5B\n %7Bphones_\n@@ -1535,16 +1535,17 @@\n nes_str%7D\n+%5B\n %5D%22%0A    %0A\n",
+            "lines": "107"
+        },
+        {
+            "label": "2025-11-29_12-39-16",
+            "content": "@@ -1523,16 +1523,17 @@\n __name%7D \n+%5B\n %7Bphones_\n@@ -1536,16 +1536,17 @@\n nes_str%7D\n+%5D\n %22%0A    %0Ad\n",
+            "lines": "107"
+        },
+        {
+            "label": "2025-11-29_12-40-36",
+            "content": "@@ -1535,18 +1535,16 @@\n nes_str%7D\n-%5B%5D\n %22%0A    %0Ad\n",
+            "lines": "107"
+        },
+        {
+            "label": "2025-11-29_12-43-06",
+            "content": "@@ -1535,16 +1535,18 @@\n nes_str%7D\n+%5B%5D\n %22%0A    %0Ad\n",
+            "lines": "107"
+        },
+        {
+            "label": "2025-11-29_12-43-28",
+            "content": "@@ -1409,91 +1409,8 @@\n %22-%22%0A\n-%0A        if len(self.__phones) == 0:%0A            phones_str=%22%5B%5D%22%0A        else:%0A    \n     \n@@ -1486,25 +1486,16 @@\n hones))%0A\n-        %0A\n         \n",
+            "lines": "107"
+        },
+        {
+            "label": "2025-11-29_13-02-22",
+            "content": "@@ -1482,64 +1482,18 @@\n     \n-    return f%22%7Bfav%7D %7Bself.__name%7D %7Bphones_str%7D%22%0A        %0A\n+else:%0A    \n     \n@@ -1507,19 +1507,15 @@\n nes_\n-inside\n+str\n  = %22\n-,\n  %22.j\n@@ -1524,46 +1524,41 @@\n n(f%22\n-%7Bp.getId()%7D:%7Bp.getNumber()%7D\n+%5B%7Bi%7D:%7Bp%7D%5D\n %22 for\n+ i,\n  p in \n+enumerate(\n self\n@@ -1567,16 +1567,26 @@\n _phones)\n+)%0A        \n %0A       \n@@ -1619,17 +1619,16 @@\n me%7D \n-%5B\n %7Bphones_\n insi\n@@ -1627,16 +1627,12 @@\n nes_\n-inside%7D%5D\n+str%7D\n %22%0A  \n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-11-29_13-08-06",
+            "content": "@@ -1084,23 +1084,24 @@\n ail:\n+ numero\n  inv\n-alid number\n+%C3%A1lido\n %22)%0A \n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-11-29_13-08-44",
+            "content": "@@ -2243,17 +2243,16 @@\n         \n-#\n elif cmd\n@@ -2276,9 +2276,8 @@\n     \n-#\n    c\n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-11-29_13-39-15",
+            "content": "@@ -2148,17 +2148,16 @@\n         \n-#\n elif cmd\n@@ -2174,17 +2174,16 @@\n         \n-#\n     inde\n@@ -2212,9 +2212,8 @@\n     \n-#\n    c\n@@ -2235,32 +2235,33 @@\n index)%0A%0A        \n+#\n elif cmd == %22tfa\n@@ -2265,32 +2265,33 @@\n tfav%22:%0A         \n+#\n    contact.favor\n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-11-29_13-39-34",
+            "content": "@@ -2140,32 +2140,33 @@\n mber))%0A%0A        \n+#\n elif cmd == %22rm%22\n@@ -2171,24 +2171,25 @@\n m%22:%0A        \n+#\n     index = \n@@ -2202,32 +2202,33 @@\n gs%5B1%5D)%0A         \n+#\n    contact.rmPho\n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-11-29_14-59-45",
+            "content": "@@ -2267,109 +2267,8 @@\n v%22:%0A\n-            if contact.getIsfavorited():%0A                contact.unfavorited()%0A            else:%0A    \n     \n@@ -2291,18 +2291,16 @@\n favorite\n-()\n %0A%0A      \n",
+            "lines": "112"
+        },
+        {
+            "label": "2025-11-29_15-01-09",
+            "content": "class Phone:\n    def __init__(self, id:str, number:str) :\n        self.__id = id\n        self.__number = number\n\n\n    def isValid (self, number:str):\n        permitidos = \"0123456789().\"\n        for c in number:\n            if c not in permitidos:\n                return False\n        return True\n    \n    def getNumber(self):\n        return self.__number \n    \n    def getId(self):\n        return self.__id\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__number}\"\n\nclass Contact:\n    def __init__(self,name:str):\n        self.__name= name\n        self.__phones: list[Phone] = []\n        self.__favorited=False\n\n    def getName(self):\n        return self.__name\n    \n    def getIsfavorited(self):\n        return self.__favorited\n    \n    def getPhones(self):\n        return self.__phones\n    \n    def favorite(self):\n        self.__favorited=True\n\n    def unfavorited(self):\n        self.__favorited=False\n\n    def  addPhone(self, phone:Phone):\n        if phone.isValid(phone.getNumber()):\n            self.__phones.append(phone)\n            return True\n        print(\"fail: invalid number\")\n        return False\n        \n\n    def rmPhone(self, index:int):\n        if 0 <= index <len(self.__phones):\n            del self.__phones[index]\n            return True\n        print(\"fail: telefone inexistente\")\n        return False \n\n    def __str__(self):\n        fav = \"@\" if self.__favorited else \"-\"\n\n        if len(self.__phones) == 0:\n            phones_str=\"[]\"\n            return f\"{fav} {self.__name} {phones_str}\"\n        \n        phones_inside = \", \".join(f\"{p.getId()}:{p.getNumber()}\" for p in self.__phones)\n        return f\"{fav} {self.__name} [{phones_inside}]\"\n    \ndef main():\n    contact =Contact(\"\")\n    while True:\n        line=input()\n        args=line.split(\" \")\n        print(f\"${' '.join(args)}\")\n        cmd = args[0]\n\n        if cmd == \"show\": \n            print(contact)\n\n        elif cmd==\"end\":\n            break\n\n        elif cmd ==\"init\":\n            contact = Contact(args[1])\n\n        elif cmd == \"add\":\n            id= args[1]\n            number= args [2]\n            contact.addPhone(Phone(id, number))\n\n        elif cmd == \"rm\":\n            index = int(args[1])\n            contact.rmPhone(index)\n\n        elif cmd == \"tfav\":\n            if contact.getIsfavorited():\n                contact.unfavorited()\n            else:\n                contact.favorite()\n\n        else: \n            print(\"comando invdo\")\n\nmain()\n\n\n\n\n\n        \n\n    \n\n        \n\n",
+            "lines": "115"
         }
     ]
 }
